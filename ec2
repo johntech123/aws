@@ -1,1 +1,13 @@
+1)difference between spot instance, on-demand and reserved instance
+
+on-demand: 
+spot instance are genrally costly (pay per second) but with no log term commitment, ideal for short term and it highly available.
+
+spot instance:
+spot instance are actually cheaper then on-demand instance (90 % cheaper) but can be terminated anytime and also there is no commitment.
+
+reserved instance:
+reserve instance require 1-3 years of commitment but provide upto 72 % saving compare to on demand.
+
+
 
