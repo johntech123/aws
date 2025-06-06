@@ -1,0 +1,12 @@
+ALB                                                                           NLB
+✅ Works at Layer 7 (Application Layer)                                      Works at Layer 4 (Transport Layer)
+   support http and https protocal                                            supprt TCP & UDP protocol
+✅ Advance feature like path-based routing, host, or headers                 Routes based on IP address and port                
+✅ Good for HTTP/HTTPS traffic                                               Good for TCP UDP traffic or high-speed, low-latency requirements like gaming
+  Good for web application or microservices architecture                      
+  support ssl termination
+  Slightly higher (more processing) bcz it reads header 
+
+
+When would you use an ALB over an NLB?
+Use an ALB for applications that need content-based routing, like web applications. Use an NLB for high-performance applications that require fast handling of TCP/UDP traffic.
