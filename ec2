@@ -9,5 +9,49 @@ spot instance are actually cheaper then on-demand instance (90 % cheaper) but ca
 reserved instance:
 reserve instance require 1-3 years of commitment but provide upto 72 % saving compare to on demand.
 
+2) what if you lost private key to access instance
+
+Stop the EC2 instance (do not terminate).
+Detach its root EBS volume.
+Attach the volume to another instance where you do have access.
+SSH into that helper instance and mount the attached volume.
+Navigate to /home/ubuntu/.ssh/authorized_keys or /root/.ssh/authorized_keys.
+Add a new public key (matching a new PEM you control).
+Detach and reattach the volume back to the original instance.
+Start the instance and SSH using the new private key.
+
+2nd method:
+Create an AMI from the instance.
+Launch a new EC2 instance from that AMI with a new key pair.
+
+
+EBS :
+EBS Is a persistent storage volume for your ec2 its like a external hard drive you can attach and detach from your servers ,its persistent bcz even if the ec2 is terminated
+the attached EBS volume will remain there.it gives HA because AWS automatically replicate the volume within an availability zone If AZ crash volume will be delete.
+Ec2 and EBS should be in the same AZ, once attached we can mount the volume.
+
+First lsblk to check the partision
+Identify the ebs volume device name (volume attached karte time rakhna padta devicename dev xvdf
+Sudo mount dev xdvf <kaha mount krna hai>(mnt me ebs best hai rehta )
+Type’s    SSD & HDD
+          General purpose gp2 -3: suitable for database, file system and webserver
+          Provisioned IOPS io1: For high performance application which required low latency
+
+It supports encryption and backup snapshot   we can scale the size of ec2 attached EBS volume without stopping the instance.
+By default when you delete instance EBS will be terminated for that you need to specify before attaching the volume NO option for delete on termination.
+
+Ok we can take snapshot of the volume after that we can create volume from snapshot we can choose the AZ you want and from that volume we can create instance.
+For incremental snapshot we have to choose incremental backup 
+aws ec2 create-snapshot - -<volume-id> --description `incremental backup` --<parentsnapshotid> 
+
+
+
+
+
+
+
+
+
+
 
 
