@@ -12,3 +12,12 @@ When would you use an ALB over an NLB?
 Use an ALB for applications that need content-based routing, like web applications or microservices and api that require advance routing and security feature.
 Use an NLB for high-performance low latency applications such as gaming, real time streaming and u know that require fast handling of TCP/UDP traffic.
 
+ layer 7 vs layer 4:
+
+layer-7:
+see layer 7 (application layer besically looks at the actual content of the request (like Urls, headers) it understand the http and https protocols,it can route traffic
+based on path like if request comes for /login it goes to the login service its u know a smart receptionist who understand the request.
+
+layer4(transport layer):
+this layer only looks at ip adresses and port number it doesnt care whats inside the request, it handles TCP & UDP protocol.
+
